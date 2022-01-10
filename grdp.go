@@ -1,4 +1,4 @@
-package main
+package grdp
 
 import (
 	"errors"
@@ -143,34 +143,34 @@ func (g *Client) LoginVNC() error {
 	return err
 }
 
-var (
-	ip       string
-	domain   string
-	user     string
-	passwd   string
-	loglevel int
-)
+// var (
+// 	ip       string
+// 	domain   string
+// 	user     string
+// 	passwd   string
+// 	loglevel int
+// )
 
-func main() {
-	flag.StringVar(&ip, "m", "localhost:3389", "ip:port")
-	flag.StringVar(&domain, "d", "", "domain")
-	flag.StringVar(&user, "u", "", "user")
-	flag.StringVar(&passwd, "p", "", "passwd")
-	flag.IntVar(&loglevel, "l", 1, "debug:0 info:1 warn:2 error:3")
-	flag.Parse()
-	if user == "" || passwd == "" {
-		fmt.Println("user and passwd empty")
-		os.Exit(-1)
-	}
-	g := NewClient(ip, glog.LEVEL(loglevel))
-	err := g.Login(domain, user, passwd)
-	//g := NewClient("192.168.0.132:3389", glog.LEVEL(loglevel))
-	//err := g.Login("", "administrator", "Jhadmin123")
-	//g := NewClient("192.168.18.100:5902", glog.DEBUG)
-	//err := g.LoginVNC()
+// func main() {
+// 	flag.StringVar(&ip, "m", "localhost:3389", "ip:port")
+// 	flag.StringVar(&domain, "d", "", "domain")
+// 	flag.StringVar(&user, "u", "", "user")
+// 	flag.StringVar(&passwd, "p", "", "passwd")
+// 	flag.IntVar(&loglevel, "l", 1, "debug:0 info:1 warn:2 error:3")
+// 	flag.Parse()
+// 	if user == "" || passwd == "" {
+// 		fmt.Println("user and passwd empty")
+// 		os.Exit(-1)
+// 	}
+// 	g := NewClient(ip, glog.LEVEL(loglevel))
+// 	err := g.Login(domain, user, passwd)
+// 	//g := NewClient("192.168.0.132:3389", glog.LEVEL(loglevel))
+// 	//err := g.Login("", "administrator", "Jhadmin123")
+// 	//g := NewClient("192.168.18.100:5902", glog.DEBUG)
+// 	//err := g.LoginVNC()
 
-	if err != nil {
-		fmt.Println("Login:", err)
-	}
+// 	if err != nil {
+// 		fmt.Println("Login:", err)
+// 	}
 
-}
+// }
